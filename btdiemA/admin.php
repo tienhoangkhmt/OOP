@@ -46,9 +46,11 @@ if(isset($_REQUEST['btn_submit'])){
     if ($ma==""||$tour=="" || $gia==""|| $thoigian==""||$songay==""||$tinhtrang==""){
         echo "yeu cau nhap lai";
     }else{
+        // khoi tao dooi tuong
         $db=new Database();
         $conn=Database::$connection;
         $sql="INSERT INTO tourdulich(`matour`,`tentour`,`gia`,`thoigianchay`,`songay`,`tinhtrang`) VALUE('$ma','$tour','$gia','$thoigian','$songay','$tinhtrang') ";
+        // truy cap den truy van $sql = TRUE THI SE THEM THANH CONG
         if($conn->query($sql)== TRUE){
             echo " them thanh cong";
         }else{

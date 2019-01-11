@@ -1,0 +1,40 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Lenovo
+ * Date: 1/11/2019
+ * Time: 2:23 PM
+ */
+require 'database.php';
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        alert('Chao Admin')
+    </script>
+</head>
+<body>
+<form>
+    <label>Matour</label><br>
+    <input type="text" name="matour" placeholder="nhap ma tour vao day"><br>
+    <label>Ten tour</label><br>
+    <input type="text" name="tour" placeholder="nhap tour can them vao day"><br>
+    <label>Gia</label><br>
+    <input type="number" name="gia" placeholder="nhap gia"><br>
+    <label>Thoi Gian Chay</label><br>
+    <input type="text" name="thoigian" placeholder="nhap thoi gian "><br>
+    <label>So Ngay</label><br>
+    <input type="number" name="songay" placeholder="nhap so ngay "><br>
+    <label>Tinh trang(con/het)</label><br>
+    <input type="text" name="tinhtrang" placeholder="nhap con hoac het">
+    <input type="submit" name="btn_submit" value="submit">
+</form>
+<?php
+
+?>
+</body>
+</html>

@@ -31,18 +31,21 @@ require 'database.php';
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    echo $row['matour'];
-                    echo "<br>";
-                    echo $row['tentour'];
-                    echo"<br>";
-                    echo $row['gia'];
-                    echo"<br>";
-                    echo $row['thoigianchay'];
-                    echo "<br>";
-                    echo $row['songay'];
-                    echo "<br>";
-                    echo $row['tinhtrang'];
-                    echo "<br>";
+                    $hoang= "<a href='cau6.php' id='hoang'>";
+                    $hoang .= $row['matour'];
+                    $hoang.="<br>";
+                    $hoang .= $row['tentour'];
+                    $hoang.="<br>";
+                    $hoang .= $row['gia'];
+                    $hoang.="<br>";
+                    $hoang .= $row['thoigianchay'];
+                    $hoang.="<br>";
+                    $hoang .= $row['songay'];
+                    $hoang.="<br>";
+                    $hoang .= $row['tinhtrang'];
+                    $hoang.="<br>";
+                    $hoang.="</a>";
+                  echo $hoang;
                 }
             }
         }

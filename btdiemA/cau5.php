@@ -31,25 +31,37 @@ require 'database.php';
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
-                    $hoang= "<a href='cau6.php' id='hoang'>";
-                    $hoang .= $row['matour'];
-                    $hoang.="<br>";
-                    $hoang .= $row['tentour'];
-                    $hoang.="<br>";
-                    $hoang .= $row['gia'];
-                    $hoang.="<br>";
-                    $hoang .= $row['thoigianchay'];
-                    $hoang.="<br>";
-                    $hoang .= $row['songay'];
-                    $hoang.="<br>";
-                    $hoang .= $row['tinhtrang'];
-                    $hoang.="<br>";
-                    $hoang.="</a>";
-                  echo $hoang;
+                   $data[]=$row;
+
+                    }
+                if(!empty($data)){
+                    foreach ($data as $hoang){?>
+                        <div class="col-md-4">
+                            <div class="card mb-4 box-shadow">
+                                <div class="card-body">
+                                    <a href="cau6.php">
+                                    <h2><?php echo $hoang['tentour'] ?></h2>
+                                    <p class="card-text"><?php echo $hoang['gia'] ?></p>
+                                    <p class="card-text"><?php echo $hoang['thoigianchay'] ?></p>
+                                    <p class="card-text"><?php echo $hoang['songay'] ?></p>
+                                    <p class="card-text"><?php echo $hoang['tinhtrang'] ?></p>
+                                    </a>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-sm btn-outline-secondary">Them</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            <?php
+                    }
                 }
             }
+
         }
-        }
+    }
+
 ?>
 </body>
 </html>

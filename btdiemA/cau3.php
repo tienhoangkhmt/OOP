@@ -34,6 +34,7 @@ if (isset($_REQUEST["btn_submit"])) {
         $db=new Database();
         // truy  cap den bien static $connection = null
         $conn = Database::$connection;
+//        $hoang=mysqli_connect('localhost','root','','tendb');
         $sql = "select * from nguoidung where tentaikhoan = '$TK' and matkhau= '$MK' ";
         // truy vaan
         $result = $conn->query($sql);
@@ -43,9 +44,9 @@ if (isset($_REQUEST["btn_submit"])) {
             echo "tên đăng nhập hoặc mật khẩu không đúng !";
         }else if($row['cap']== "1")//lay du lieu trong cot MANGUOIDUNG
             {
-            header('Location: admin.php');
-        }else{
             header('Location: cau4.php');
+        }else{
+            header('Location: cau5.php');
         }
     }
 }

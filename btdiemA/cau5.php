@@ -40,11 +40,12 @@ require 'database.php';
                             <div class="card mb-4 box-shadow">
                                 <div class="card-body">
                                     <a href="cau6.php">
-                                    <h2><?php echo $hoang['tentour'] ?></h2>
-                                    <p class="card-text"><?php echo $hoang['gia'] ?></p>
-                                    <p class="card-text"><?php echo $hoang['thoigianchay'] ?></p>
-                                    <p class="card-text"><?php echo $hoang['songay'] ?></p>
-                                    <p class="card-text"><?php echo $hoang['tinhtrang'] ?></p>
+                                    <h2><?php echo $hoang['matour'] ?></h2>
+                                        <h2>  <p class="card-text">Ten Tour :<?php echo $hoang['tentour'] ?></p></h2>
+                                    <p class="card-text"> Gia Tien :<?php echo $hoang['gia'] ?></p>
+                                    <p class="card-text">Thoi Gian Chay :<?php echo $hoang['thoigianchay'] ?></p>
+                                    <p class="card-text"> So ngay o :<?php echo $hoang['songay'] ?></p>
+                                    <p class="card-text"> Tinh Trang (con/het)<?php echo $hoang['tinhtrang'] ?></p>
                                     </a>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">

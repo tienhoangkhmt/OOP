@@ -34,28 +34,33 @@ require 'database.php';
     <input type="submit" name="btn_submit" value="submit">
 </form>
 <?php
-    if(isset($_REQUEST['btn_submit'])){
-        // lay du lieu tu input
-        $ma=$_REQUEST['matour'];
-        $tour=$_REQUEST['tour'];
-        $gia=$_REQUEST['gia'];
-        $thoigian=$_REQUEST['thoigian'];
-        $songay=$_REQUEST['songay'];
-        $tinhtrang=$_REQUEST['tinhtrang'];
-        // kiem tra xem input co rong khong
-        if ($ma==""||$tour=="" || $gia==""|| $thoigian==""||$songay==""||$tinhtrang==""){
-            echo "yeu cau nhap lai";
+if(isset($_REQUEST['btn_submit'])){
+    // lay du lieu tu input
+    $ma=$_REQUEST['matour'];
+    $tour=$_REQUEST['tour'];
+    $gia=$_REQUEST['gia'];
+    $thoigian=$_REQUEST['thoigian'];
+    $songay=$_REQUEST['songay'];
+    $tinhtrang=$_REQUEST['tinhtrang'];
+    // kiem tra xem input co rong khong
+    if ($ma==""||$tour=="" || $gia==""|| $thoigian==""||$songay==""||$tinhtrang==""){
+        echo "yeu cau nhap lai";
+    }else{
+        // khoi tao dooi tuong
+        $db=new Database();
+        $conn=Database::$connection;
+        $sql1="SELECT * FROM ptuweb";
+        $sql="INSERT INTO tourdulich(`matour`,`tentour`,`gia`,`thoigianchay`,`songay`,`tinhtrang`) VALUE('$ma','$tour','$gia','$thoigian','$songay','$tinhtrang') ";
+        // truy cap den truy van $sql = TRUE THI SE THEM THANH CONG
+        if($conn->query($sql)== TRUE){
+            echo " them thanh cong";
         }else{
-            $db=new Database();
-            $conn=Database::$connection;
-            $sql="INSERT INTO tourdulich(`matour`,`tentour`,`gia`,`thoigianchay`,`songay`,`tinhtrang`) VALUE('$ma','$tour','$gia','$thoigian','$songay','$tinhtrang') ";
-            if($conn->query($sql)== TRUE){
-                echo " them thanh cong";
-            }else{
-                echo mysqli_errno($conn) . mysqli_error($conn);
-            }
+            echo mysqli_errno($conn) . mysqli_error($conn);
         }
+        $conn->close();
     }
+}
 ?>
+
 </body>
 </html>
